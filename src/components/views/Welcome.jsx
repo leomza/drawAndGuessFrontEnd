@@ -7,6 +7,7 @@ import swal from 'sweetalert'
 import SessionContext from '../../context/SessionContext'
 import Loading from '../commons/Loading'
 import Error from '../commons/Error'
+import { url } from '../../config'
 
 const Welcome = () => {
   const navigate = useNavigate()
@@ -23,7 +24,7 @@ const Welcome = () => {
     async function getSession () {
       try {
         setLoading(true)
-        const res = await axios.get(`http://localhost:8000/session/infoAll/`)
+        const res = await axios.get(`${url}/session/infoAll/`)
         maxScore(res.data.sessions)
         setLoading(false)
       } catch (error) {
@@ -70,7 +71,7 @@ const Welcome = () => {
       }
       setError(false)
       const res = await axios.post(
-        'http://localhost:8000/user/createUser',
+        `${url}/user/createUser`,
         user
       )
       setLoading(true)

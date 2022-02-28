@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap'
 import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import swal from 'sweetalert'
+import { url } from '../../config'
 
 const LeaveGame = () => {
   const { sessionId } = useParams()
@@ -18,7 +19,7 @@ const LeaveGame = () => {
     }).then(leaveSession => {
       if (leaveSession) {
         axios
-          .put(`http://localhost:8000/session/endSession/${sessionId}`)
+          .put(`${url}/session/endSession/${sessionId}`)
           .then(() => {
             navigate(`/`)
           })

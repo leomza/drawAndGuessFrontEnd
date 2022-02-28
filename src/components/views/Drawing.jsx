@@ -6,6 +6,7 @@ import swal from 'sweetalert'
 import { useParams, useNavigate } from 'react-router-dom'
 import Waiting from './Waiting'
 import LeaveGame from '../commons/LeaveGame'
+import { url } from '../../config'
 
 function Drawing ({ chooseWord }) {
   const sigCanvas = useRef({})
@@ -23,14 +24,14 @@ function Drawing ({ chooseWord }) {
   }, [])
 
   const getUserInfo = async userId => {
-    const res = await axios.get(`http://localhost:8000/user/info/${userId}`)
+    const res = await axios.get(`${url}/user/info/${userId}`)
     if (!res.data.user.drawer) {
       navigate(`/guessing/${sessionId}/${userId}`)
     }
   }
 
   const getSessionInfo = async userId => {
-    const res = await axios.get(`http://localhost:8000/session/info/${userId}`)
+    const res = await axios.get(`${url}/session/info/${userId}`)
     if (res.data.session.finishedDate) {
       swal('The session is over, your friend left! 😒').then(() => {
         navigate(`/`)
@@ -44,7 +45,7 @@ function Drawing ({ chooseWord }) {
 
   const save = async () => {
     const imageURL = sigCanvas.current.getTrimmedCanvas().toDataURL('image/png')
-    await axios.post('http://localhost:8000/session/saveImage', {
+    await axios.post(`${url}/session/saveImage`, {
       imageURL,
       sessionId
     })

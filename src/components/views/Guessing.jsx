@@ -5,6 +5,7 @@ import axios from 'axios'
 import swal from 'sweetalert'
 import Waiting from './Waiting'
 import LeaveGame from '../commons/LeaveGame'
+import { url } from '../../config'
 
 function Guessing () {
   const navigate = useNavigate()
@@ -25,7 +26,7 @@ function Guessing () {
   const getImage = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:8000/session/info/${sessionId}`
+        `${url}/session/info/${sessionId}`
       )
       setImage(res.data.session.image)
       setWord(res.data.session.word)
@@ -35,7 +36,7 @@ function Guessing () {
   }
 
   const getSessionInfo = async userId => {
-    const res = await axios.get(`http://localhost:8000/session/info/${userId}`)
+    const res = await axios.get(`${url}/session/info/${userId}`)
     if (res.data.session.finishedDate) {
       swal('The session is over, your friend left! 😒').then(() => {
         navigate(`/`)
@@ -57,10 +58,10 @@ function Guessing () {
       if (guessingword.toLowerCase() === word.toLowerCase()) {
         swal('Great!', 'Now is time to draw', 'success')
         const resSession = await axios.put(
-          `http://localhost:8000/session/guessSuccess/${sessionId}`
+          `${url}/session/guessSuccess/${sessionId}`
         )
         const usersInSession = resSession.data.session.users
-        await axios.put(`http://localhost:8000/user/changeRoles`, {
+        await axios.put(`${url}/user/changeRoles`, {
           usersInSession
         })
         navigate(`/word/${sessionId}/${userId}`)

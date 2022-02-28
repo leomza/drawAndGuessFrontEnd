@@ -1,0 +1,1 @@
+export const url = process.env.NODE.ENV === 'production' ? 'https://draw-and-guess-backend.herokuapp.com' : 'http://localhost:8000'

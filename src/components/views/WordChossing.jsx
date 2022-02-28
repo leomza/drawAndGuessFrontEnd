@@ -7,6 +7,7 @@ import SessionContext from '../../context/SessionContext'
 import Loading from '../commons/Loading'
 import Username from '../commons/Username'
 import SessionPoints from '../commons/SessionPoints'
+import { url } from '../../config'
 
 export default function WordChossing ({ handleWord }) {
   const navigate = useNavigate()
@@ -20,9 +21,7 @@ export default function WordChossing ({ handleWord }) {
     async function getSession () {
       try {
         setLoading(true)
-        const res = await axios.get(
-          `http://localhost:8000/session/info/${sessionId}`
-        )
+        const res = await axios.get(`${url}/session/info/${sessionId}`)
         setSessionPoints(res.data.session.points)
         setLoading(false)
       } catch (error) {
@@ -77,7 +76,7 @@ export default function WordChossing ({ handleWord }) {
       setLoading(true)
       handleWord({ word, difficulty })
       const selectedWord = word[0]
-      await axios.post('http://localhost:8000/session/saveWord', {
+      await axios.post(`${url}/session/saveWord`, {
         selectedWord,
         difficulty,
         sessionId
