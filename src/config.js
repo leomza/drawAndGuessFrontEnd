@@ -1,1 +1,3 @@
-export const url = process.env.NODE.ENV === 'production' ? 'https://draw-and-guess-backend.herokuapp.com' : 'http://localhost:8000'
+export const url = 'https://draw-and-guess-backend.herokuapp.com'
+
+/* To run in local mode change to: 'http://localhost:8000' */
