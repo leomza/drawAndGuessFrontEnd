@@ -11,9 +11,9 @@ This is an amazing game where you enter in a session with a friend and play with
 
 | Title | Link |
 | ------ | ------ |
-| Website (Front End) | [https://guessdraw.netlify.app/][PlDb] |
-| Website Repository (Front End) | [https://github.com/leomza/drawAndGuessFrontEnd/][PlDb] |
-| Back End | [https://draw-and-guess-backend.herokuapp.com/][PlGh] |
-| Back End Repository | [https://github.com/leomza/drawAndGuessBackEnd/][PlGh] |
+| Website (Front End) | [https://guessdraw.netlify.app/] |
+| Website Repository (Front End) | [https://github.com/leomza/drawAndGuessFrontEnd/] |
+| Back End | [https://draw-and-guess-backend.herokuapp.com/] |
+| Back End Repository | [https://github.com/leomza/drawAndGuessBackEnd/] |
 
 **Enjoy this great game, Hell Yeah!**
