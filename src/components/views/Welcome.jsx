@@ -101,7 +101,7 @@ const Welcome = () => {
       <>
         <div className='welcome__container'>
           <h1 className='welcome__title'>
-            Welcome to Moveo <br />
+            Welcome to Leonardos <br />
             Draw & Guess
           </h1>
           <img className='welcome__gif' src={pencilGif} alt='gif pencil' />
